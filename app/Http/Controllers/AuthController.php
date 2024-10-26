@@ -8,12 +8,17 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function showLoginForm()
-    {
-        return view('auth.login');
+    public function index() {
+        return view('user.index');
     }
 
-    public function login(Request $request)
+    public function login()
+    {
+        $data['page_title'] = 'Login';
+        return view('login', compact('data'));
+    }
+
+    public function login_post(Request $request)
     {
         $credentials = $request->validate([
             'email' => 'required|email',
