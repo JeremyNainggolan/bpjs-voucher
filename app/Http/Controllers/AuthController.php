@@ -18,6 +18,11 @@ class AuthController extends Controller
         return view('login', compact('data'));
     }
 
+    public function register() {
+        $data['page_title'] = 'Register';
+        return view('register', compact('data'));
+    }
+
     public function login_post(Request $request)
     {
         $credentials = $request->validate([

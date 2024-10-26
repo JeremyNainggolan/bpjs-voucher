@@ -9,3 +9,5 @@ Route::get('/', function () {
 
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'login_post'])->name('login');
+
+Route::get('/register', [AuthController::class, 'register']);
