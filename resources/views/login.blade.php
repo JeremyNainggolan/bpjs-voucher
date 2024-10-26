@@ -2,9 +2,9 @@
 @section('title', $data['page_title'])
 @section('content')
     <body onload="createCaptcha()">
-    <section class="vh-100 gradient-custom">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+    <section class="d-flex  min-vh-100 gradient-custom">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div class="card bg-light border-light shadow-lg text-white rounded-4">
                         <div class="card-title align-items-center text-center mt-5">
@@ -13,7 +13,7 @@
                         <div class="card-body p-5 align-items-center text-dark">
                             <form id="loginForm" role="form" action="{{ route('login') }}" method="POST">
                                 @csrf
-                                <div class="my-4">
+                                <div class="mb-4">
                                     <label for="identity" class="fw-bolder mb-1">Pilih Jenis Identitas</label>
                                     <select class="form-select fw-light" aria-label="Default select example"
                                             name="identity" id="identity" onchange="updatePlaceholder()">
