@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', $data['page_title'])
 @section('content')
-
+    <body onload="createCaptcha()">
     <section class="vh-100 gradient-custom">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -10,35 +10,41 @@
                         <div class="card-title align-items-center text-center mt-5">
                             <img src="{{ asset('logo/BPJS_Kesehatan_logo.png') }}">
                         </div>
-                        <div class="card-body p-5 align-items-center text-dark" onload="createCaptcha()">
+                        <div class="card-body p-5 align-items-center text-dark">
                             <form role="form" action="" method="POST" onsubmit="validateCaptcha()">
                                 @csrf
                                 <div class="my-4">
                                     <label for="identity" class="fw-bolder mb-1">Pilih Jenis Identitas</label>
-                                    <select class="form-select fw-light" aria-label="Default select example" name="identity">
+                                    <select class="form-select fw-light" aria-label="Default select example"
+                                            name="identity">
                                         <option value="nik_select" selected>Nomor Induk Kependudukan (NIK)</option>
                                         <option value="jkn_select">Nomor Kartu JKN</option>
                                     </select>
                                 </div>
                                 <div class="my-4">
                                     <label for="nik" class="fw-bolder mb-1">Nomor Induk Kependudukan (NIK)</label>
-                                    <input id="nik" name="nik"  type="text" class="form-control" required placeholder="16 Digit Nomor Induk Kependudukan">
+                                    <input id="nik" name="nik" type="text" class="form-control" required
+                                           placeholder="16 Digit Nomor Induk Kependudukan">
                                 </div>
                                 <div class="my-4">
                                     <label for="password" class="fw-bolder mb-1">Password</label>
-                                    <input id="password" name="password"  type="password" ontoggle="" class="form-control" required placeholder="Password JKN">
+                                    <input id="password" name="password" type="password" ontoggle=""
+                                           class="form-control" required placeholder="Password JKN">
                                 </div>
-                                <div class="my-4">
+                                <div class="mt-4">
                                     <div id="captcha">
                                     </div>
                                     <label for="captcha" class="fw-bolder mb-1">Captcha</label>
-                                    <input type="text" placeholder="Captcha" class="form-control" id="captcha" name="captcha">
+                                    <input type="text" placeholder="Captcha" class="form-control" id="captcha"
+                                           name="captcha">
                                 </div>
                                 <div class="text-center">
                                     <button id="submit" name="submit" type="submit"
-                                            class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign
-                                        in
+                                            class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0 fw-bolder">Masuk
                                     </button>
+                                </div>
+                                <div class="mt-1 text-center mt-2">
+                                    <p class="fw-bolder card-text"><a href="{{ url('lupa-kata-sandi') }}" class="text-decoration-none">Lupa Kata Sandi</a></p>
                                 </div>
                             </form>
                         </div>
@@ -47,9 +53,11 @@
             </div>
         </div>
     </section>
+    </body>
 
     <script>
         var code;
+
         function createCaptcha() {
             //clear the contents of captcha div first
             document.getElementById('captcha').innerHTML = "";
@@ -75,12 +83,13 @@
             code = captcha.join("");
             document.getElementById("captcha").appendChild(canv); // adds the canvas to the body element
         }
+
         function validateCaptcha() {
             event.preventDefault();
             debugger
             if (document.getElementById("captcha").value == code) {
                 alert("Valid Captcha")
-            }else{
+            } else {
                 alert("Invalid Captcha. try Again");
                 createCaptcha();
             }
