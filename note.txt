@@ -1,0 +1,2 @@
+Insert data: User -> php artisan tinker
+    User::create(['name' => 'Test User', 'email' => 'test@example.com', 'password' => Hash::make('password')]);
