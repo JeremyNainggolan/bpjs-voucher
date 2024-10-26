@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>{{ env('APP_NAME', 'JKN Web') }}</title>
+    <title>@yield('title', "{{ env('APP_NAME') }}")</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <link href="{{ asset('asset/img/favicon.png')}}" rel="icon">
+    <link href="{{ asset('icon/logo-bpjs-kesehatan.png')}}" rel="icon">
     <link href="{{ asset('asset/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <link href="https://fonts.googleapis.com" rel="preconnect">
