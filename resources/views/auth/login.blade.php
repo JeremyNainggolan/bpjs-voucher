@@ -45,8 +45,12 @@
                                     </button>
                                 </div>
                                 <div class="mt-1 text-center mt-2">
-                                    <p class="fw-bolder card-text"><a href="{{ url('lupa-kata-sandi') }}"
-                                                                      class="text-decoration-none">Lupa Kata Sandi</a>
+                                    <p class="fw-bolder card-text">
+                                        <a href="{{ url('lupa-kata-sandi') }}" class="text-decoration-none">Lupa Kata Sandi</a>
+                                    </p>
+                                    <p class="fw-bolder card-text">
+                                        Belum punya akun? 
+                                        <a href="{{ url('register') }}" class="text-decoration-none">Daftar</a>
                                     </p>
                                 </div>
                             </form>
@@ -59,6 +63,7 @@
     </body>
 
     <script>
+        // Script remains unchanged
         var code;
 
         function createCaptcha() {
