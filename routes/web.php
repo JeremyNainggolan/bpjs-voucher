@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'login_post'])->name('login');
 

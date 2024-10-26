@@ -15,29 +15,33 @@ class AuthController extends Controller
     public function login()
     {
         $data['page_title'] = 'Login';
-        return view('login', compact('data'));
+        return view('auth.login', compact('data'));
     }
 
     public function register() {
         $data['page_title'] = 'Register';
-        return view('register', compact('data'));
+        return view('auth.register', compact('data'));
     }
 
     public function login_post(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
+            'nik' => 'required',
             'password' => 'required'
         ]);
 
         if (Auth::attempt($credentials, $request->remember)) {
             $request->session()->regenerate();
             return redirect()->intended('/');
+        } else {
+            return back()->withErrors([
+                'nik' => 'The provided credentials do not match our records.',
+            ]);
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        // return back()->withErrors([
+        //     'email' => 'The provided credentials do not match our records.',
+        // ]);
     }
 
     public function logout(Request $request)

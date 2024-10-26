@@ -1,2 +1,7 @@
 Insert data: User -> php artisan tinker
-    User::create(['name' => 'Test User', 'email' => 'test@example.com', 'password' => Hash::make('password')]);
+
+$user = new App\Models\User;
+$user->name = '123';
+$user->nik = '1234567891011';
+$user->password = Hash::make('123');
+$user->save();
