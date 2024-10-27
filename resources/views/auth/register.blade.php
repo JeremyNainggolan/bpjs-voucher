@@ -11,7 +11,7 @@
                             <img src="{{ asset('logo/BPJS_Kesehatan_logo.png') }}">
                         </div>
                         <div class="card-body p-5 align-items-center text-dark">
-                            <form id="loginForm" role="form" action="{{ route('login') }}" method="POST">
+                            <form id="loginForm" role="form" action="{{ route('register.post') }}" method="POST">
                                 @csrf
                                 <div class="mb-4">
                                     <label for="nik" class="fw-bolder mb-1" id="label_nik">Nomor Induk Kependudukan
@@ -20,13 +20,23 @@
                                 </div>
                                 <div class="my-4">
                                     <label for="name" class="fw-bolder mb-1">Nama Lengkap</label>
-                                    <input id="name" name="text" type="name"
+                                    <input id="name" name="name" type="text"
                                            class="form-control" required>
                                 </div>
                                 <div class="my-4">
-                                    <label for="birthdate" class="fw-bolder mb-1">Tanggal Lahir</label>
-                                    <input id="birthdate" name="birthdate" type="date"
-                                           class="form-control" required>
+                                    <label for="date_of_birth" class="fw-bolder mb-1">Tanggal Lahir</label>
+                                    <input id="date_of_birth" name="date_of_birth" type="date"
+                                        class="form-control" required>
+                                </div>
+                                <div class="my-4">
+                                    <label for="password" class="fw-bolder mb-1">Password</label>
+                                    <input id="password" name="password" type="password"
+                                        class="form-control" required>
+                                </div>
+                                <div class="my-4">
+                                    <label for="password_confirmation" class="fw-bolder mb-1">Confirm Password</label>
+                                    <input id="password_confirmation" name="password_confirmation" type="password"
+                                        class="form-control" required>
                                 </div>
                                 <div class="mt-4">
                                     <div id="captcha"></div>
@@ -36,8 +46,7 @@
                                 </div>
                                 <div class="text-center">
                                     <button id="submit" name="submit" type="submit"
-                                            class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0 fw-bolder"
-                                            onclick="validateCaptcha(event)">Verifikasi Daftar
+                                            class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0 fw-bolder">Verifikasi Daftar
                                     </button>
                                 </div>
                             </form>

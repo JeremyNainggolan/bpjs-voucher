@@ -3,5 +3,6 @@ Insert data: User -> php artisan tinker
 $user = new App\Models\User;
 $user->name = '123';
 $user->nik = '1234567891011';
+$user->date_of_birth = '2021-01-01'; 
 $user->password = Hash::make('123');
 $user->save();
